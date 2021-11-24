@@ -1,0 +1,159 @@
+.container {
+  /* max-width: 1600px; */
+  box-sizing: border-box;
+  margin: 0 auto;
+  padding: 2.23em 13.3%;
+  background-image: url('https://images.wallpaperscraft.ru/image/single/zvezdnoe_nebo_noch_derevya_nochnoj_pejzazh_118760_1920x1080.jpg');
+  background-size: cover;
+  background-position: center;
+}
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+a {
+  line-height: 2em;
+  font-size: 1.4em;
+  font-family: Ribeye;
+  text-decoration: none;
+  font-weight: 400;
+  color: white;
+  letter-spacing: 2px;
+}
+ul {
+  display: flex;
+  text-decoration: none;
+  margin: 0;
+  transition: 0.5s;
+}
+li {
+  position: relative;
+  transition: 0.5s;
+  font-family: roboto;
+  cursor: pointer;
+  margin-right: 3em;
+  list-style-type: none;
+}
+li:hover {
+  color: #c9453b;
+  transform: scale(1.1);
+}
+.link_contact {
+  background-color: aliceblue;
+  display: none;
+  position: absolute;
+  left: 10px;
+  padding: 10px;
+  width: 150px;
+  border-radius: 5px;
+  box-shadow: 1px 2px 0px 0px rgb(160, 160, 160);
+}
+[href='#1'] {
+  font-size: 15px;
+  display: block;
+  color: rgb(0, 0, 0);
+}
+[href='#1']:hover {
+  color: #c9453b;
+}
+
+button {
+  background-color: #c9453b;
+  color: white;
+  font-family: roboto;
+  line-height: 24px;
+  font-size: 16px;
+  border-radius: 0.4em;
+  padding: 14px 36px;
+  cursor: pointer;
+  border: none;
+  transition: 0.5s;
+}
+button:hover {
+  background-color: #880900;
+}
+/* section */
+
+#section {
+  max-width: 678px;
+  margin-top: 18%;
+  margin-bottom: 16%;
+}
+h1 {
+  margin: 0;
+  font-weight: 700;
+  font-size: 65px;
+  line-height: 78px;
+  margin-bottom: 30px;
+}
+#title {
+  max-width: 400px;
+  line-height: 28px;
+  color: rgb(251, 251, 251, 0.6);
+  margin-bottom: 40px;
+}
+#button {
+  padding: 18px 46px;
+}
+
+/* media */
+
+@media (max-width: 850px) {
+  ul {
+    padding: 5px;
+    width: max-content;
+  }
+  h1 {
+    font-size: 35px;
+  }
+  li {
+    margin: 5px;
+  }
+  button {
+    padding: 10px;
+  }
+  #button {
+    padding: 10px;
+  }
+}
+@media (max-width: 600px) {
+  .container {
+    padding: 5%;
+  }
+}
+
+@media (max-width: 580px) {
+  .header {
+    display: block;
+    text-align: start;
+  }
+  nav {
+    width: max-content;
+  }
+  #section {
+    margin-top: 70px;
+  }
+  a {
+    line-height: 5px;
+  }
+  h1 {
+    line-height: 40px;
+  }
+  button {
+    padding: 7px 10px;
+  }
+  .link_contact {
+    width: 100px;
+    font-size: 10px;
+    left: -10px;
+    text-align: start;
+    box-shadow: none;
+  }
+  [href='#1'] {
+    display: inline-block;
+    line-height: 20px;
+    box-shadow: none;
+    margin-bottom: 5px;
+  }
+}
