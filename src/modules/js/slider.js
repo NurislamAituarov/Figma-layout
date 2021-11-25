@@ -2,49 +2,57 @@ const slider = () => {
   const sliderWrapper = document.querySelector('.container_offers_card'),
     right = document.querySelector('#img_right'),
     left = document.querySelector('#img_left'),
-    slide = document.querySelectorAll('#slider_sapn'),
-    cards = document.getElementsByClassName('card_offers'),
-    img = document.querySelectorAll('.right_img'),
-    link = document.querySelector('#link_contact');
-
-  slide.forEach((el, i) => {
-    el.addEventListener('click', () => {});
-  });
+    cards = document.getElementsByClassName('card_offers');
 
   left.addEventListener('click', () => {
     sliderWrapper.prepend(cards[cards.length - 1]);
   });
-
   right.addEventListener('click', () => {
     sliderWrapper.appendChild(cards[0]);
   });
-  // /////////////////////////////link
 
-  link.addEventListener('mouseover', () => {
-    document.querySelector('.link_contact').style.display = 'block';
-  });
-  link.addEventListener('mouseout', () => {
-    document.querySelector('.link_contact').style.display = 'none';
-  });
+  // touch///////////////////////
 
-  window.addEventListener('scroll', () => {
-    // console.log(window.pageYOffset);
-    if (window.pageYOffset > 2200 && window.pageYOffset < 2300) {
-      img.forEach((el, i) => {
-        if (i % 2) {
-          el.style.transform = 'rotateY(180deg)';
-        } else {
-          setTimeout(() => (el.style.transform = 'rotateX(180deg)'));
-        }
-      });
+  sliderWrapper.addEventListener('touchstart', handleTouchStart, false);
+  sliderWrapper.addEventListener('touchmove', handleTouchMove, false);
+  let x1 = null;
+  let y1 = null;
 
-      setTimeout(() => {
-        img.forEach((el) => {
-          el.style.transform = 'rotateY(0deg)';
-        });
-      }, 1000);
+  function handleTouchStart(e) {
+    const firstTouch = e.touches[0];
+    x1 = firstTouch.clientX;
+    y1 = firstTouch.clientY;
+    // console.log(x1, y1);
+  }
+  function handleTouchMove(e) {
+    if (!x1 || !y1) {
+      return;
     }
-  });
+    let x2 = e.touches[0].clientX;
+    let y2 = e.touches[0].clientY;
+    // console.log(x1, y1);
+    let xDiff = x2 - x1;
+    let yDiff = y2 - y2;
+    // console.log(yDiff);
+
+    if (Math.abs(xDiff) > Math.abs(yDiff)) {
+      if (xDiff > 0) {
+        console.log('right');
+        sliderWrapper.prepend(cards[cards.length - 1]);
+      } else {
+        console.log('left');
+        sliderWrapper.appendChild(cards[0]);
+      }
+    } else {
+      if (yDiff > 0) {
+        console.log('down');
+      } else {
+        console.log('top');
+      }
+    }
+    x1 = null;
+    y1 = null;
+  }
 };
 
 export default slider;
