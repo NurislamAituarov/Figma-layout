@@ -32,7 +32,7 @@ const slider = () => {
     let y2 = e.touches[0].clientY;
     // console.log(x1, y1);
     let xDiff = x2 - x1;
-    let yDiff = y2 - y2;
+    let yDiff = y2 - y1;
     // console.log(yDiff);
 
     if (Math.abs(xDiff) > Math.abs(yDiff)) {
