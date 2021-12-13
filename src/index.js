@@ -7,5 +7,6 @@ import './modules/css/footer.css';
 import sliderWrapper from './modules/js/slider';
 import header from './modules/js/header';
 
+import './modules/js/Image';
 sliderWrapper();
 header();
